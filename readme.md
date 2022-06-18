@@ -17,8 +17,11 @@ npx create-next-app --typescript ディレクトリ名
 [MUI 公式](https://mui.com/)
 
 ```Dir:client
-npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/material @emotion/react @emotion/styled @mui/system @mui/icons-material
 ```
+
+[MUI Styled](https://mui.com/system/styled/)
+[MUI Icons](https://www.npmjs.com/package/@mui/icons-material)
 
 ### Jest
 
