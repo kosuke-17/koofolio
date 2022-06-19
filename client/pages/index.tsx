@@ -8,7 +8,7 @@ import {
   HeaderLaypout,
   HeaderSearch,
 } from "../components/header";
-import Nav from "../components/body";
+import Body from "../components/body";
 
 const Layout = styled("div")({
   padding: "1rem",
@@ -39,7 +39,7 @@ const Home: NextPage = () => {
         </div>
       </HeaderLaypout>
       <BodyLayout>
-        <Nav />
+        <Body />
       </BodyLayout>
     </Layout>
   );
