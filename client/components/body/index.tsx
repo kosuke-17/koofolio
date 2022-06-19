@@ -33,7 +33,7 @@ const Nav = () => {
     },
   ];
   return (
-    <BottomNavigation style={navStyle.root}>
+    <BottomNavigation showLabels style={navStyle.root}>
       {BtnNavActions &&
         BtnNavActions.map((e, idx) => {
           return (
