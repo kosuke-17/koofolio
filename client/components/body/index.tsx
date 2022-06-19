@@ -2,7 +2,6 @@ import { BottomNavigation, BottomNavigationAction } from "@mui/material";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import PetsIcon from "@mui/icons-material/Pets";
-import { useState } from "react";
 
 const Nav = () => {
   const navStyle = {
