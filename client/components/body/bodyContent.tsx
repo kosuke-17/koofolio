@@ -8,16 +8,15 @@ import {
 } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
+// import Island from "../../public/island.jpg";
 
 const Content: React.FC = () => {
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia component="img" image="" alt="" />
+      <CardMedia component="img" image="./island.jpg" alt="" />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+        <Typography variant="h5" color="text.first">
+          タイトル
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
