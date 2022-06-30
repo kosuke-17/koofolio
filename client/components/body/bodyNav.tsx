@@ -2,6 +2,7 @@ import { BottomNavigation, BottomNavigationAction } from "@mui/material";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import PetsIcon from "@mui/icons-material/Pets";
+import CoffeeMakerIcon from "@mui/icons-material/CoffeeMaker";
 
 const Nav: React.FC = () => {
   const navStyle = {
@@ -29,6 +30,11 @@ const Nav: React.FC = () => {
       label: "Product",
       icon: <PetsIcon fontSize="large" />,
       onClick: () => alert("This is Product"),
+    },
+    {
+      label: " Coffee",
+      icon: <CoffeeMakerIcon fontSize="large" />,
+      onClick: () => alert("This is  Coffee"),
     },
   ];
   return (

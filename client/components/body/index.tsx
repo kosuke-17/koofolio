@@ -1,12 +1,10 @@
 import Grid from "@mui/material/Grid";
 import { Box } from "@mui/system";
 import Content from "./bodyContent";
-import Nav from "./bodyNav";
 
 const Body = () => {
   return (
     <>
-      <Nav />
       <Box
         component={"div"}
         sx={{
