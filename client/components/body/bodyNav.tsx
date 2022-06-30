@@ -3,6 +3,7 @@ import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import PetsIcon from "@mui/icons-material/Pets";
 import CoffeeMakerIcon from "@mui/icons-material/CoffeeMaker";
+import Link from "next/link";
 
 const Nav: React.FC = () => {
   const navStyle = {
@@ -19,22 +20,22 @@ const Nav: React.FC = () => {
     {
       label: "History",
       icon: <RocketLaunchIcon fontSize="large" />,
-      onClick: () => alert("This is History"),
+      refKey: "/history",
     },
     {
       label: "Me",
       icon: <InsertEmoticonIcon fontSize="large" />,
-      onClick: () => alert("This is Me"),
+      refKey: "/me",
+    },
+    {
+      label: "Coffee",
+      icon: <CoffeeMakerIcon fontSize="large" />,
+      refKey: "/coffee",
     },
     {
       label: "Product",
       icon: <PetsIcon fontSize="large" />,
-      onClick: () => alert("This is Product"),
-    },
-    {
-      label: " Coffee",
-      icon: <CoffeeMakerIcon fontSize="large" />,
-      onClick: () => alert("This is  Coffee"),
+      refKey: "/product",
     },
   ];
   return (
@@ -42,13 +43,13 @@ const Nav: React.FC = () => {
       {BtnNavActions &&
         BtnNavActions.map((e, idx) => {
           return (
-            <BottomNavigationAction
-              key={idx}
-              style={navActionStyle.root}
-              label={e.label}
-              icon={e.icon}
-              onClick={() => e.onClick()}
-            />
+            <Link href={e.refKey} key={idx}>
+              <BottomNavigationAction
+                style={navActionStyle.root}
+                label={e.label}
+                icon={e.icon}
+              />
+            </Link>
           );
         })}
     </BottomNavigation>

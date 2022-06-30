@@ -1,6 +1,5 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import type { NextPage } from "next";
 import { styled } from "@mui/system";
 import SearchIcon from "@mui/icons-material/Search";
 import Image from "next/image";
