@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import { styled } from "@mui/system";
 import Body from "../components/body";
-import Nav from "../components/body/bodyNav";
 
 const BodyLayout = styled("div")({
   backgroundColor: "aliceblue",
@@ -11,7 +10,6 @@ const BodyLayout = styled("div")({
 const Home: NextPage = () => {
   return (
     <BodyLayout>
-      <Nav />
       <Body />
     </BodyLayout>
   );

@@ -7,6 +7,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import Image from "next/image";
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 
@@ -21,14 +22,6 @@ function createData(
 }
 
 const Coffee = () => {
-  const data = [
-    { name: "コーヒー", price: 500, size: "tall" },
-    { name: "コーヒー", price: 500, size: "tall" },
-    { name: "コーヒー", price: 500, size: "tall" },
-    { name: "コーヒー", price: 500, size: "tall" },
-    { name: "コーヒー", price: 500, size: "tall" },
-    { name: "コーヒー", price: 500, size: "tall" },
-  ];
   const row = [
     createData("ドリップ コーヒー", 280, 320, 360, 400),
     createData("カフェ ミスト", 320, 360, 400, 440),

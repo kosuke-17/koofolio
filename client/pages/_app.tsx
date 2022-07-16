@@ -9,6 +9,8 @@ import {
   HeaderLaypout,
   HeaderSearch,
 } from "../components/header";
+import Nav from "../components/body/bodyNav";
+import Link from "next/link";
 
 const Layout = styled("div")({
   padding: "1rem",
@@ -18,9 +20,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>
       <HeaderLaypout>
-        <div>
+        <Link href="/">
           <Image src="/koofolio240.png" width={120} height={50} />
-        </div>
+        </Link>
         <HeaderSearch>
           <HeaderInput disableUnderline={true} />
           <HeaderButton variant="contained">
@@ -33,6 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           </div>
         </div>
       </HeaderLaypout>
+      <Nav />
       <Component {...pageProps} />
     </Layout>
   );
