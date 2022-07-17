@@ -26,16 +26,37 @@ const Canvas = (): JSX.Element => {
   const torusGeometry = new THREE.TorusGeometry(0.5, 0.2, 16, 100, Math.PI * 2);
   const planeGeometry = new THREE.PlaneGeometry(10, 10);
 
+  // バッファジオメトリ作成
+  const geometory = new THREE.BufferGeometry();
+  // フロート型にすることで、無駄なデータを省く
+  // 位置情報
+  const positionArray = new Float32Array(9);
+  positionArray[0] = 0;
+  positionArray[1] = 0;
+  positionArray[2] = 0;
+  positionArray[3] = 0;
+  positionArray[4] = 1;
+  positionArray[5] = 0;
+  positionArray[6] = 1;
+  positionArray[7] = 1;
+  positionArray[8] = 1;
+
+  const positionAttribute = new THREE.BufferAttribute(positionArray, 3);
+
+  geometory.setAttribute("position", positionAttribute);
+
   //マテリアル
-  const material = new THREE.MeshNormalMaterial();
+  const material = new THREE.MeshBasicMaterial();
   // ワイヤーフレーム
-  // material.wireframe = true;
+  material.wireframe = true;
 
   // メッシュ化
   const box = new THREE.Mesh(boxGeometory, material);
   const sphere = new THREE.Mesh(sphereGeometry, material);
   const torus = new THREE.Mesh(torusGeometry, material);
   const plane = new THREE.Mesh(planeGeometry, material);
+
+  const buffer = new THREE.Mesh(geometory, material);
 
   // 位置の移動
   sphere.position.x = 1.5;
@@ -45,8 +66,8 @@ const Canvas = (): JSX.Element => {
   // sphere.position.z = 1.5;
 
   // ボックスがセフィアの中に入っている
-  scene.add(box, sphere, torus, plane);
-
+  // scene.add(box, sphere, torus, plane);
+  scene.add(buffer);
   //ライト
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
   scene.add(ambientLight);
