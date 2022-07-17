@@ -1,6 +1,13 @@
 import type { NextPage } from "next";
 import { styled } from "@mui/system";
 import Body from "../components/body";
+import dynamic from "next/dynamic";
+const BasicCanvas = dynamic(() => import("../components/BasicCanvas"), {
+  ssr: false, // <- ここで ssr を無効にするオプションを渡す
+});
+const Canvas = dynamic(() => import("../components/Canvas"), {
+  ssr: false, // <- ここで ssr を無効にするオプションを渡す
+});
 
 const BodyLayout = styled("div")({
   backgroundColor: "aliceblue",
@@ -9,9 +16,11 @@ const BodyLayout = styled("div")({
 
 const Home: NextPage = () => {
   return (
-    <BodyLayout>
-      <Body />
-    </BodyLayout>
+    // <BodyLayout>
+    // <BasicCanvas />
+    <Canvas />
+    // {/* <Body /> */}
+    // </BodyLayout>
   );
 };
 
