@@ -13,6 +13,9 @@ const Canvas = dynamic(() => import("../components/Canvas"), {
 const BufferCanvas = dynamic(() => import("../components/BufferCanvas"), {
   ssr: false, // <- ここで ssr を無効にするオプションを渡す
 });
+const MaterialCanvas = dynamic(() => import("../components/MaterialCanvas"), {
+  ssr: false, // <- ここで ssr を無効にするオプションを渡す
+});
 
 const BodyLayout = styled("div")({
   backgroundColor: "aliceblue",
@@ -23,7 +26,8 @@ const Home: NextPage = () => {
   return (
     // <BodyLayout>
     // <BasicCanvas />
-    <Canvas />
+    // <Canvas />
+    <MaterialCanvas />
     // <BufferCanvas />
     // {/* <Body /> */}
     // </BodyLayout>
