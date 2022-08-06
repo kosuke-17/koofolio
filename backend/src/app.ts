@@ -1,16 +1,19 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 
-const start = async () => {
-  const app = express();
+const app = express();
 
-  const PORT = 8000;
+const PORT = 8000;
 
-  // CORS対策
-  app.use(cors());
+// CORS対策
+app.use(cors());
 
-  // apollo起動
-  app.listen(PORT);
-};
+// server起動
+app.listen(PORT);
 
-start();
+// pdf作成するためのパス
+app.get("/archive", (req: Request, res: Response) => {
+  console.log("api届いた");
+
+  res.json("hello world");
+});

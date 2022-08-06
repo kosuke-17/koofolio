@@ -1,24 +1,12 @@
 import type { NextPage } from "next";
 import { styled } from "@mui/system";
-import Body from "../components/body";
-import dynamic from "next/dynamic";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 // three.jsのためのdynamic import
-const BasicCanvas = dynamic(() => import("../components/BasicCanvas"), {
-  ssr: false, // <- ここで ssr を無効にするオプションを渡す
-});
-const Canvas = dynamic(() => import("../components/Canvas"), {
-  ssr: false, // <- ここで ssr を無効にするオプションを渡す
-});
-const BufferCanvas = dynamic(() => import("../components/BufferCanvas"), {
-  ssr: false, // <- ここで ssr を無効にするオプションを渡す
-});
-const MaterialCanvas = dynamic(() => import("../components/MaterialCanvas"), {
-  ssr: false, // <- ここで ssr を無効にするオプションを渡す
-});
-const CameraControle = dynamic(() => import("../components/CameraControle"), {
-  ssr: false, // <- ここで ssr を無効にするオプションを渡す
-});
+// const BasicCanvas = dynamic(() => import("../components/BasicCanvas"), {
+//   ssr: false, // <- ここで ssr を無効にするオプションを渡す
+// });
 
 const BodyLayout = styled("div")({
   backgroundColor: "aliceblue",
@@ -26,15 +14,25 @@ const BodyLayout = styled("div")({
 });
 
 const Home: NextPage = () => {
+  const [data, setData] = useState(null);
+  console.log("data");
+  console.log(data);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/archive")
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((e) => {
+        // エラー処理
+        console.log(e.message);
+      });
+  }, []);
+
   return (
     // <BodyLayout>
-    // <BasicCanvas />
-    // <Canvas />
-    // <MaterialCanvas />
-    // <BufferCanvas />
-    // {/* <Body /> */}
-    // </BodyLayout>
-    <CameraControle />
+    <div>{data}</div>
   );
 };
 
