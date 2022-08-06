@@ -16,6 +16,9 @@ const BufferCanvas = dynamic(() => import("../components/BufferCanvas"), {
 const MaterialCanvas = dynamic(() => import("../components/MaterialCanvas"), {
   ssr: false, // <- ここで ssr を無効にするオプションを渡す
 });
+const CameraControle = dynamic(() => import("../components/CameraControle"), {
+  ssr: false, // <- ここで ssr を無効にするオプションを渡す
+});
 
 const BodyLayout = styled("div")({
   backgroundColor: "aliceblue",
@@ -27,10 +30,11 @@ const Home: NextPage = () => {
     // <BodyLayout>
     // <BasicCanvas />
     // <Canvas />
-    <MaterialCanvas />
+    // <MaterialCanvas />
     // <BufferCanvas />
     // {/* <Body /> */}
     // </BodyLayout>
+    <CameraControle />
   );
 };
 
