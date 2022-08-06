@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { styled } from "@mui/system";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { createElement, useEffect, useState } from "react";
 
 // three.jsのためのdynamic import
 // const BasicCanvas = dynamic(() => import("../components/BasicCanvas"), {
@@ -15,19 +15,37 @@ const BodyLayout = styled("div")({
 
 const Home: NextPage = () => {
   const [data, setData] = useState(null);
-  console.log("data");
+
   console.log(data);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/archive")
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((e) => {
-        // エラー処理
-        console.log(e.message);
-      });
+    const fetch = async () => {
+      const { data }: any = await axios
+        .get("http://localhost:8000/archive", {
+          responseType: "arraybuffer",
+        })
+        .catch((e) => {
+          // エラー処理
+          console.log("エラー発生");
+          console.log(e.message);
+        });
+      // console.log("レスポンス");
+      // console.log(data);
+      // setData(data);
+
+      const blob = new Blob([data], { type: "application/zip" });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "レスポンスデータ.zip");
+      link.click();
+      link.parentNode?.removeChild;
+      console.log(data);
+      console.log(blob);
+      console.log(url);
+      console.log(link);
+    };
+    fetch();
   }, []);
 
   return (
