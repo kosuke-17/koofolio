@@ -16,15 +16,17 @@ app.listen(PORT);
 // pdf作成するためのパス
 app.get("/archive", async (req: Request, res) => {
   const outputDirPath = "pdfs/archiveTest1.pdf";
-  const rs = fs.createReadStream(outputDirPath);
+  const stream = fs.createReadStream(outputDirPath);
+  // S3の場合
+  // const stream = S3.getObject({ key }).createReadStream()
   var archive = archiver("zip");
   archive.pipe(res);
   archive
     .append("Some text to go in file 1.", { name: "1.txt" })
-    .append(rs, {
+    .append(stream, {
       name: "somefolder1/2.pdf",
     })
-    .append(rs, {
+    .append(stream, {
       name: "somefolder2/4.pdf",
     })
     .finalize();
