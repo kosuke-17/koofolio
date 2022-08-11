@@ -29,21 +29,20 @@ const Home: NextPage = () => {
           console.log("エラー発生");
           console.log(e.message);
         });
-      // console.log("レスポンス");
-      // console.log(data);
-      // setData(data);
 
-      const blob = new Blob([data], { type: "application/zip" });
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", "レスポンスデータ.zip");
-      link.click();
-      link.parentNode?.removeChild;
-      console.log(data);
-      console.log(blob);
-      console.log(url);
-      console.log(link);
+      if (data) {
+        const blob = new Blob([data], { type: "application/zip" });
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "製品資料.zip");
+        link.click();
+        link.parentNode?.removeChild;
+        console.log(data);
+        console.log(blob);
+        console.log(url);
+        console.log(link);
+      }
     };
     fetch();
   }, []);
