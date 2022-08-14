@@ -21,9 +21,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Layout>
       <HeaderLaypout>
         <Link href="/">
-          <>
+          <a>
             <Image src="/koofolio240.png" width={120} height={50} />
-          </>
+          </a>
         </Link>
         <HeaderSearch>
           <HeaderInput disableUnderline={true} />

@@ -9,7 +9,7 @@ const BodyLayout = styled("div")({
 const Home: NextPage = () => {
   return (
     <BodyLayout>
-      <div></div>
+      <div>index</div>
     </BodyLayout>
   );
 };
