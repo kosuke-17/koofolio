@@ -9,10 +9,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 import Skills from "../components/skills";
+import Separate from "../components/Separate";
 
 const BodyLayout = styled("div")({});
-
-const SkillCard = styled("div")({});
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -42,6 +41,9 @@ const Home: NextPage = () => {
           </Button>
         </CardActions>
       </Card>
+
+      <Separate name="Skills" />
+      <Separate name="Hobby" />
       {skills && (
         <Skills skills={skills} classes={{ width: "100px", height: "100px" }} />
       )}

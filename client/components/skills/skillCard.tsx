@@ -1,9 +1,7 @@
 import {
   Card,
-  CardActions,
   CardContent,
   CardMedia,
-  IconButton,
   Typography,
   Rating,
   Stack,
