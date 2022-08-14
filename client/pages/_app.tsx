@@ -9,7 +9,7 @@ import {
   HeaderLaypout,
   HeaderSearch,
 } from "../components/header";
-import Nav from "../components/body/bodyNav";
+import Nav from "../components/skills/bodyNav";
 import Link from "next/link";
 
 const Layout = styled("div")({

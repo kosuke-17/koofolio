@@ -1,8 +1,14 @@
 import Grid from "@mui/material/Grid";
 import { Box } from "@mui/system";
-import Content from "./bodyContent";
+import SkillCard from "./skillCard";
 
-const Body = () => {
+const Skills = ({
+  skills,
+  classes,
+}: {
+  skills: { url: string; name: string; rate: number }[];
+  classes: { width: string; height: string };
+}) => {
   return (
     <>
       <Box
@@ -16,9 +22,9 @@ const Body = () => {
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-          {Array.from(Array(6)).map((_, index) => (
-            <Grid item xs={2} sm={4} md={4} key={index}>
-              <Content />
+          {skills.map((skill) => (
+            <Grid item xs={2} sm={4} md={4} key={skill.url}>
+              <SkillCard skill={skill} classes={classes} />
             </Grid>
           ))}
         </Grid>
@@ -26,4 +32,4 @@ const Body = () => {
     </>
   );
 };
-export default Body;
+export default Skills;
